@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/yourusername/sweetsocial.git'
+                git branch: 'main', url: 'https://github.com/vanji123/Memora.git', credentialsId: 'github-token'
             }
         }
         stage('Build') {
