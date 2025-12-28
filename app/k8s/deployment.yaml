@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sweetsocial
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sweetsocial
+  template:
+    metadata:
+      labels:
+        app: sweetsocial
+    spec:
+      containers:
+      - name: sweetsocial
+        image: yourusername/sweetsocial:latest
+        ports:
+        - containerPort: 3000
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
